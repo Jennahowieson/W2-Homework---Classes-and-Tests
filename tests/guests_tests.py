@@ -18,8 +18,3 @@ class TestGuests(unittest.TestCase):
     def test_guest_has_fave_song(self):
         self.assertEquals ("beyonce", self.guest1.fav_song)
     
-    def test_cheer_fav_song(self):
-        self.bar.check_in_guest(self.guest1)
-        self.bar.check_in_song(self.song1)
-        song_to_check = self.guests.cheer_fav_song(self.song1, self.guest1)
-        self.assertEquals ("Yay, my favourite song is in the room", song_to_check)

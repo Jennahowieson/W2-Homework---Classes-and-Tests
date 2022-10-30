@@ -9,6 +9,7 @@ class TestBar(unittest.TestCase):
         self.guest1 = Guest(15, "beyonce", False)
         self.guest2 = Guest(20, "beyonce", False)
         self.guest3 = Guest(10, "britney", False)
+        
         guests = [self.guest1, self.guest2, self.guest3]
 
         self.song1 = Song("beyonce", 3)
@@ -44,3 +45,8 @@ class TestBar(unittest.TestCase):
         songs_in_room = self.bar.get_current_songs()
         self.assertEquals(2, len(songs_in_room))
     
+    def test_cheer_fav_song(self):
+        self.bar.check_in_guest(self.guest1)
+        self.bar.check_in_song(self.song1)
+        song_to_cheer = self.guest1.cheer_fav_song(self.guest1)
+        self.assertEquals ("Yay, my favourite song is in the room", song_to_cheer)
