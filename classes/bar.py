@@ -30,3 +30,5 @@ class Bar:
             if song.status == True:
                 current_songs.append(song)
         return current_songs
+
+    

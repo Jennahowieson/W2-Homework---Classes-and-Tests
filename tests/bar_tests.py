@@ -29,8 +29,18 @@ class TestBar(unittest.TestCase):
         current_guests = self.bar.get_current_guests()
         self.assertEquals(1,len(current_guests))
     
+    def test_check_in_song (self):
+        song_status = self.bar.check_in_song(self.song1)
+        self.assertEquals(True,self.song1.status)
+    
+    def test_check_out_song (self):
+        self.bar.check_in_song(self.song2)
+        self.bar.check_out_song(self.song2)
+        self.assertEquals(False,self.song2.status)
+
     def test_add_song_to_room(self):
         self.bar.check_in_song(self.song1)
         self.bar.check_in_song(self.song2)
         songs_in_room = self.bar.get_current_songs()
         self.assertEquals(2, len(songs_in_room))
+    
